@@ -1,0 +1,38 @@
+
+.button{
+    background-color:whitesmoke;
+    font-weight: bold;
+    font-style: italic;
+}
+.h1{
+    background-color: beige;
+    font-style: italic;
+    color: black;
+    font-weight:bolder;
+    border:1px solid black ;
+    border-radius: 50px;
+    align-items: center;
+    justify-items: center;
+    background-color:grey;
+    border-radius:330px;
+    font-size: xx-large;
+}
+.footer{
+    font-style: italic;
+    border: 1px solid black;
+    margin-bottom: 1px;
+    margin: 330px;
+    border-radius: 330px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-items: center;
+    background-color:grey;
+}
+.akanDisplay{
+    background-color: black;
+}
+.ph{
+    font-style: italic;
+    font-weight: lighter;
+    align-content: flex-end;
+}
