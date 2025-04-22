@@ -21,7 +21,7 @@
         were born.</p>
         <p class="ph">The website generates the name automatically the user only need to input their date of birth in the buttons below.</p>
         <P>id="error" style="color:red;"</P>
-    <form id="akanDisplay" onsubmit="akanGenerator()">
+    <form id="akanNameDisplay" onsubmit="akanGenerator()">
         <h1 class="h1">Get the Akan name here</h1>
         <label for="bd"></label>
         <input type="date" name="birthdate" id="dob" class="button">
@@ -40,7 +40,7 @@
             const femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
             const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         
-            document.getElementById("akanForm").addEventListener("submit", function(event) {
+            document.getElementById("akanNameDisplay").addEventListener("submit", function(event) {
               event.preventDefault();
         
               const dob = document.getElementById("dob").value;

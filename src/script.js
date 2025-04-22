@@ -1,6 +1,6 @@
 function akanGenerator() {
-    let akanDisplay = document.getElementById("akanDisplay");
-    akanDisplay.addEventListener("submit", function(event) {
+    let akanNameDisplay = document.getElementById("akanNameDisplay");
+    akanNameDisplay.addEventListener("submit", function(event) {
             event.preventDefault();
         })
         //Validating month and day
