@@ -1,4 +1,4 @@
-function akanNameDisplayr() {
+function akanGenerator() {
     let akanNameDisplay = document.getElementById("akanNameDisplay");
     akanNameDisplay.addEventListener("submit", function(event) {
             event.preventDefault();
