@@ -33,6 +33,7 @@
         </select>
         <button type="submit" class="button">Get Akan name</button>
     </form>
+    <h1></h1>
     <section>
         <div id="akanNameDisplay" style="margin-top: 20px; font-weight: bold; font-size: 1.2em;"></div>
         <script>
@@ -54,15 +55,15 @@
         
               const birthDate = new Date(dob);
               const dayIndex = birthDate.getDay(); // 0 = Sunday, 6 = Saturday
-              let akanName = "";
-              if (gender === "male") {
-                akanName = maleNames[dayIndex];
-              } else if (gender === "female") {
-                akanName = femaleNames[dayIndex];
+              const nameAkan = "";
+              if (gender === "male".checked) {
+                nameAkan = maleNames[dayIndex];
+              } else (gender === "female".checked) {
+                nameAkan = femaleNames[dayIndex];
               }
         
               const dayName = daysOfWeek[dayIndex];
-              display.textContent = `You were born on a ${dayName}, and your Akan name is ${akanName}.`;
+              display.textContent = `You were born on a ${dayName}, and your Akan name is ${nameAkan}.`;
             });
           </script>
      </section>
