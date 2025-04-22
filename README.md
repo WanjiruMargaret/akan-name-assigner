@@ -1,4 +1,4 @@
-# AKN Name Project
+# AKAN Name Project
 
 #### A simple app that generates Akan names based on your date of birth and gender.  
 **Version**: 1.0.0  
