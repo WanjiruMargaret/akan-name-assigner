@@ -1,4 +1,4 @@
-function akanGenerator() {
+function akanNameDisplayr() {
     let akanNameDisplay = document.getElementById("akanNameDisplay");
     akanNameDisplay.addEventListener("submit", function(event) {
             event.preventDefault();
@@ -62,4 +62,4 @@ function akanGenerator() {
         return false;
     }
 }  
-document.getElementById("error").textContent = "Username is required!";
+ function {document.getElementById("error").textContent = "Username is required!";}
