@@ -1,66 +1,48 @@
 function akanGenerator() {
-    let akanNameDisplay = document.getElementById("akanNameDisplay");
-    akanNameDisplay.addEventListener("submit", function(event) {
-            event.preventDefault();
-        
-        //Validating month and day
-    function validator() {
-        if ((Number(day) < 0 || Number(day) > 31) || (Number(month) < 0 || Number(month) > 12)) {
-            alert("Enter valid day or month")
+    const form = document.getElementById("form"); // Make sure this is your form element
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get values
+        let year = document.getElementById("year").value;
+        let month = document.getElementById("month").value;
+        let day = document.getElementById("dob").value;
+        let isMale = document.getElementById("male-input").checked;
+        let isFemale = document.getElementById("female-input").checked;
+
+        // Validate inputs
+        if (day < 1 || day > 31 || month < 1 || month > 12) {
+            alert("Please enter a valid day or month.");
+            return;
         }
-    }
-    let year = document.getElementById("year").value;
-    let month = document.getElementById("month").value;
-    let day = document.getElementById("dob").value;
-    let male, female;
-    if (document.getElementById("male-input").checked == true) {
-        male = "male"
-    };
-    if (document.getElementById("female-input").checked == true) {
-        female = "female"
-    };
-    validator()
-        //Validator variable
-    let daymonthValid = validator();
-    //
-    let daysOfWeek = [
-        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-    ];
-    let maleAkanNames = [
-        "Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"
-    ];
-    let femaleAkanNames = [
-        "Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"
-    ];
-    console.log(year, month, day, male, female)
-    let CC = year.slice(0, 2);
-    let YY = year.slice(2, 4);
-    console.log(CC, YY);
-    //Formula for calculating akan names
-    let dayofweekFormula = Math.floor(((4* CC - 2* CC - 1)+(5 * YY / 4)+(26 * (MM + 1)/10)+ DD)% 7);
-    console.log(dayofweekFormula);
-    //Index of dayofweekFormula
-    let index;
-    if (dayofweekFormula == 0) {
-        index = 6;
-    } else {
-        index = dayofweekFormula - 1;
-    }
-    console.log(index)
-        //check gender,month, day,then display name
-    if (male == "male" && daymonthValid) {
-        document.getElementById('result').textContent = "You were born on a " + daysOfWeek[index] + " ,your Akan Name is " + maleAkanNames[index];
+
+        // Calculate day of the week
+        let date = new Date(`${year}-${month}-${day}`);
+        let dayIndex = date.getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
+
+        let daysOfWeek = [
+            "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+        ];
+        let maleAkanNames = [
+            "Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"
+        ];
+        let femaleAkanNames = [
+            "Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"
+        ];
+
+        // Display result
+        if (isMale) {
+            document.getElementById('result').textContent =
+                `You were born on a ${daysOfWeek[dayIndex]}, your Akan Name is ${maleAkanNames[dayIndex]}.`;
+        } else if (isFemale) {
+            document.getElementById('result').textContent =
+                `You were born on a ${daysOfWeek[dayIndex]}, your Akan Name is ${femaleAkanNames[dayIndex]}.`;
+        } else {
+            alert("Please select a gender.");
+        }
+
         document.getElementById('display').textContent = "This is your Akan Name";
         document.getElementById('result').style.fontSize = "18px";
-        return true;
-    } else if (female == "female" && daymonthValid) {
-        document.getElementById('result').textContent = "You were born on a " + daysOfWeek[index] + " ,your Akan Name is " + femaleAkanNames[index];
-        document.getElementById('display').textContent = "This is your Akan Name";
-        document.getElementById('result').style.fontSize = "18px";
-        return true;
-    } else {
-        return false;
-    }
-});   
-}  
- function {document.getElementById("error").textContent = "Username is required!";}
+    });
+}
+
