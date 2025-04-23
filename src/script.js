@@ -2,7 +2,7 @@ function akanGenerator() {
     let akanNameDisplay = document.getElementById("akanNameDisplay");
     akanNameDisplay.addEventListener("submit", function(event) {
             event.preventDefault();
-        })
+        
         //Validating month and day
     function validator() {
         if ((Number(day) < 0 || Number(day) > 31) || (Number(month) < 0 || Number(month) > 12)) {
@@ -37,7 +37,7 @@ function akanGenerator() {
     let YY = year.slice(2, 4);
     console.log(CC, YY);
     //Formula for calculating akan names
-    let dayofweekFormula = Math.floor((((Number(CC) / 4) - 2 * Number(CC) - 1) + ((5 * Number(YY) / 4)) + ((26 * (Number(MM) + 1) / 10)) + Number(DD)) % 7 );
+    let dayofweekFormula = Math.floor(((4* CC - 2* CC - 1)+(5 * YY / 4)+(26 * (MM + 1)/10)+ DD)% 7);
     console.log(dayofweekFormula);
     //Index of dayofweekFormula
     let index;
@@ -52,14 +52,15 @@ function akanGenerator() {
         document.getElementById('result').textContent = "You were born on a " + daysOfWeek[index] + " ,your Akan Name is " + maleAkanNames[index];
         document.getElementById('display').textContent = "This is your Akan Name";
         document.getElementById('result').style.fontSize = "18px";
-        return false;
+        return true;
     } else if (female == "female" && daymonthValid) {
         document.getElementById('result').textContent = "You were born on a " + daysOfWeek[index] + " ,your Akan Name is " + femaleAkanNames[index];
         document.getElementById('display').textContent = "This is your Akan Name";
         document.getElementById('result').style.fontSize = "18px";
-        return false;
+        return true;
     } else {
         return false;
     }
+});   
 }  
  function {document.getElementById("error").textContent = "Username is required!";}
