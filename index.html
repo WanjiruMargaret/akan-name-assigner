@@ -1,41 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>My Akan name generator project</title>
-     <script src="./src/script.js" defer></script>
-    <script src="./assets/images/">defer</script>
-     <link rel="stylesheet" href="styles/style.css">
-            
- </head>
-            
- <body style="background-color: beige;">
-     <h1 class="h1">Akan name assigner</h1>
-     <p class="ph">It's a website that calculates a user's the day of the week they were born and assigns them an Akan
-                    name based on
-                    the gender,the Akan names came from an Ghanaian culture were children are named according to the day they were
-                    born.</p>
-    <p class="ph">This website takes the user's birth date and assigns for them an Akan name according to the day they
-                    were born.</p>
-    <p class="ph">The website generates the name automatically the user only need to input their date of birth in the buttons below.</p>
-    <P id="error" style="color:red;"></P>
 
-<form id="akanForm">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Akan name generator project</title>
+    <script src="./src/script.js" defer></script>
+    <script src="./assets/images/">defer</script>
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body style="background-color: aqua;">
+    <h1 class="h1">Akan name assigner</h1>
+    <p class="ph">It's a website that calculates a user's the day of the week they were born and assigns them an Akan
+        name based on
+        the gender,the Akan names came from an Ghanaian culture were children are named according to the day they were
+        born.</p>
+    <p class="ph">This website takes the user's birth date and assigns for them an Akan name according to the day they
+        were born.</p>
+        <p class="ph">The website generates the name automatically the user only need to input their date of birth in the buttons below.</p>
+        <P>id="error" style="color:red;"</P>
+    <form id="akanDisplay" onsubmit="akanGenerator()">
         <h1 class="h1">Get the Akan name here</h1>
         <label for="bd"></label>
-        <input type="number" id="day" placeholder="day" min="1" max="31" required>
-        <input type="number" id="month" placeholder="month" min="1" max="12" required>
-        <input type="number" id="year" placeholder="year" min="1000" max="9999" required>
+        <input type="date" name="birthdate" id="dob" class="button">
         <label for="gender"></label>
-        <select name="gender" id="gender" class="button" required>
+        <select name="gender" id="gender" class="button">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
         </select>
         <button type="submit" class="button">Get Akan name</button>
-        <div id="akanNameDisplay" style="margin-top: 20px; font-weight: bold; font-size: 1.2em;"></div>     
-</form>
+    </form>
+    <section>
+        <div id="akanNameDisplay" style="margin-top: 20px; font-weight: bold; font-size: 1.2em;"></div>
+        <script>
+            const maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+            const femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        
+            document.getElementById("akanForm").addEventListener("submit", function(event) {
+              event.preventDefault();
+        
+              const dob = document.getElementById("dob").value;
+              const gender = document.getElementById("gender").value;
+              const display = document.getElementById("akanNameDisplay");
+        
+              if (!dob || !gender) {
+                display.textContent = "Please fill in all fields.";
+                return;
+              }
+        
+              const birthDate = new Date(dob);
+              const dayIndex = birthDate.getDay(); // 0 = Sunday, 6 = Saturday
+              let akanName = "";
+              if (gender === "male") {
+                akanName = maleNames[dayIndex];
+              } else if (gender === "female") {
+                akanName = femaleNames[dayIndex];
+              }
+        
+              const dayName = daysOfWeek[dayIndex];
+              display.textContent = `You were born on a ${dayName}, and your Akan name is ${akanName}.`;
+            });
+          </script>
+     </section>
 </body>
 <footer class="footer">
     <div>
@@ -49,3 +79,4 @@
     </div>
 </footer>
 
+</html>
