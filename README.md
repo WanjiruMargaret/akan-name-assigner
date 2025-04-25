@@ -1,4 +1,4 @@
-# AKN Name Project
+# AKAN Name Project
 
 #### A simple app that generates Akan names based on your date of birth and gender.  
 **Version**: 1.0.0  
@@ -18,6 +18,8 @@ No server or backend is required — the app runs completely in the browser.
 
 ## Known Bugs
 - The name generator is currently slow, but this will be fixed by next week.
+- Trying our level best to solve the issue about bugs
+
 
 ## Technologies Used
 - **HTML**: For the structure of the web page.
